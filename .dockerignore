@@ -6,6 +6,5 @@ env
 __pycache__
 mlruns
 .mlflow
-training
-data
+mlflow.db
 *.md
