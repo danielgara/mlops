@@ -1,15 +1,13 @@
+from pathlib import Path
+
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
 import joblib
 import mlflow
 import mlflow.sklearn
 
-# Dataset
-df = pd.DataFrame({
-    "age": [16, 17, 18, 25, 30, 35],
-    "cuts": [5, 6, 7, 0, 1, 0],
-    "emo": [1, 1, 1, 0, 0, 0]
-})
+DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "training.csv"
+df = pd.read_csv(DATA_PATH)
 
 # Features and target
 X = df[["age", "cuts"]].values
