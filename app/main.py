@@ -15,7 +15,7 @@ class Person(BaseModel):
 @app.get("/")
 def home():
     return {
-        "message": "Emo Detector API"
+        "message": "Emo Detector API."
     }
 
 @app.post("/predict")
