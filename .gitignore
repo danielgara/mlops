@@ -17,7 +17,6 @@ env/
 # Environment and secrets
 .env
 .env.*
-
 # MLflow
 mlruns/
 .mlflow/
