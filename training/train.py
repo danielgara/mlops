@@ -6,7 +6,7 @@ import joblib
 import mlflow
 import mlflow.sklearn
 
-DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "training.csv"
+DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "train" / "training_data.csv"
 df = pd.read_csv(DATA_PATH)
 
 # Features and target

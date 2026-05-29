@@ -5,9 +5,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY data/ data/
+COPY data/raw/ data/raw/
+COPY preprocess/ preprocess/
 COPY training/ training/
-RUN mkdir -p model \
+RUN mkdir -p model data/train \
+    && python preprocess/preprocess.py \
     && python training/train.py \
     && rm -rf mlruns mlflow.db
 
