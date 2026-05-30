@@ -7,7 +7,9 @@ import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 
 
+# main class
 class Trainer:
+    # class attributes
     ROOT = Path(__file__).resolve().parent.parent
     DATA_PATH = ROOT / "data" / "train" / "training_data.csv"
     MODEL_PATH = ROOT / "model" / "model.pkl"
@@ -16,16 +18,17 @@ class Trainer:
     FEATURES = ["age", "cuts"]
     TARGET = "emo"
 
+    # private methods
     @staticmethod
-    def load_data() -> tuple:
+    def _load_data() -> tuple:
         df = pd.read_csv(Trainer.DATA_PATH)
         X = df[Trainer.FEATURES].values
         y = df[Trainer.TARGET].values
         return X, y
 
     @staticmethod
-    def train() -> None:
-        X, y = Trainer.load_data()
+    def _train() -> None:
+        X, y = Trainer._load_data()
 
         mlflow.set_experiment(Trainer.EXPERIMENT_NAME)
 
@@ -42,9 +45,10 @@ class Trainer:
 
         print("Model trained successfully.")
 
+    # public methods
     @staticmethod
     def main() -> None:
-        Trainer.train()
+        Trainer._train()
 
 
 if __name__ == "__main__":
